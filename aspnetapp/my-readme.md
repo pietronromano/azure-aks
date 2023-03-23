@@ -21,7 +21,8 @@ docker exec -it aspnetapp bash
 
 # --------------------------------------------------------------------
 # BINDS
-## DIDN'T WORK!!: Didn't do anything - container wasn't watching host folder
+## DID WORK ON LINUX!
+## DIDN'T WORK ON WINDOWS!!: Didn't do anything - container wasn't watching host folder
 docker container run  --name aspnetapp -it -p 8000:80 -v $(pwd):/app  aspnetapp
 
 # VS Code Git Bash didn't work, nor did it from WSL or Terminal

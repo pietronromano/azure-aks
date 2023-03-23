@@ -1,0 +1,17 @@
+# VS Code generated Dockerfile, used for debugging
+FROM node:lts-alpine
+ENV NODE_ENV=production
+WORKDIR /usr/src/app
+COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+
+# For Alpine, use apk to add curl if we want to use that for debugging
+RUN apk add curl
+
+# Note that this fails if it's a simple nodejs app without node_modules
+RUN npm install --production --silent && mv node_modules ../
+
+COPY . .
+EXPOSE 8080
+RUN chown -R node /usr/src/app
+USER node
+CMD ["node", "app.js"]

@@ -6,7 +6,7 @@
 			"label": "docker-build",
 			"platform": "node",
 			"dockerBuild": {
-				"dockerfile": "${workspaceFolder}/Dockerfile",
+				"dockerfile": "${workspaceFolder}/Dockerfile.debug",
 				"context": "${workspaceFolder}",
 				"pull": true
 			}
