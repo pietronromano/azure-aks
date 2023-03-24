@@ -11,7 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "type": "node"
+            "type": "node",
+            "args": ["nodeapp1:debug"]
         },
         {
             "name": "Docker Node.js Launch",
