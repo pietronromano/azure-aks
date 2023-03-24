@@ -9,10 +9,20 @@ spec:
   containers:
   - name: nodeapp1
     image: pietronromano/nodeapp1:latest
-    ports: # Note, "port" isn't valid here, only the internally used containerport
+    ports: # NOTE: "port" isn't valid here, only the internally used containerport
     - containerPort: 8080
     resources: {}
-      
+    livenessProbe: # Example of liveness probe
+      httpGet:
+        path: /probe
+        port: 8080
+        httpHeaders:
+        - name: LivenessProbe-Header
+          value: Test VaAlue
+      initialDelaySeconds: 3
+      periodSeconds: 3
+
+# KUBECTL COMMANDS:
 # kubectl create –f nodeapp1.pod.yml --save-config
 # kubectl describe pod [pod-name]
 # kubectl apply –f nodeapp1.pod.yml

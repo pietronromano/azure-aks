@@ -5,6 +5,8 @@ npm init
 
 # run
 node app.js
+# From browser:
+localhost:8080/info
 
 # Add VS Support: creates .vscode\launch.json
 Add Configuration - > Node.js  
@@ -48,7 +50,7 @@ docker container run -it -p 82:8080 --name nodeapp2 nodeapp2
 
 # exec into container, exec curl (was installed in dockerfile)
 docker exec -it nodeapp1 sh
-> curl localhost:81
+> curl localhost:8080/info
 
 # THINKPAD ###############################################################################
 # On Thinkpad, if necessary, remove existing directory and files
@@ -100,11 +102,11 @@ sudo docker container  run -d -p 81:8080 --name nodeapp1 nodeapp1
 sudo docker container  run -d -p 82:8080 --name nodeapp2 nodeapp2
 
 ## Can now access from the browser on the host or with curl
-curl localhost:81
+curl localhost:81/info
 # exec into container, exec curl (was installed in dockerfile)
 sudo docker exec -it nodeapp1 sh
 # Access on internal POD por 8080
-curl localhost:8080 
+curl localhost:8080/info 
 
 # KUBERNETES #######################################################################
 # 
@@ -151,7 +153,7 @@ kubectl port-forward nodeapp1-pod 8081:8080
 
 k apply -f ./yml/nginx.pod.yml
 kubectl exec nodeapp1-pod -it -- sh
-curl localhost: 8080
+curl localhost:8080/info
 
 
 # Another example
