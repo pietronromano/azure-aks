@@ -110,7 +110,9 @@ curl localhost:8080/info
 
 # KUBERNETES #######################################################################
 # 
-# Upload image to docker hub (simpler example than creating Service principle for ACR)
+# Upload image to docker hub
+## NOTE: Need to login before trying to push, otherwise get a: 
+### "denied: requested access to the resource is denied"
 sudo docker login 
 >user: pietronromano
 >pwd: ax…0
@@ -136,7 +138,6 @@ docker push pnracr1.azurecr.io/app2:2.0
 
 
 # KUBERNETES ############################################################
-
 # Pod Definition
 alias k='microk8s kubectl'
 k get pods
@@ -161,57 +162,50 @@ https://kubernetes.io/docs/concepts/workloads/pods/
 kubectl apply -f https://k8s.io/examples/pods/simple-pod.yaml
 kubetcl get pods
 
-
-# TODO: Deployments
+# Deployments
 ## With this Service definition, the app is available on the kubernetes host at 31001 (and also externally to the host, from PC)
  ports:
  - port: 81
    targetPort: 8080
    nodePort: 31001
 
-kubectl apply -f k8s-app1.yml
+kubectl apply -f ./yml/nodeapp1.dep.yml
 kubectl get pods
+kubectl get deployments --show-labels
+kubectl scale deployment nodeapp1-dep --replicas=5
+kubectl logs  deployment/nodeapp1-dep
 
-# AKS
+# AKS ######################################################################
 az login
-az aks get-credentials --resource-group cntrs-rg --name pnraks1
-kubectl apply -f k8s-app1.yml
 
+## Install kubectl
+az aks install-cli
+## NOTE: Need to add "C:\Users\pietr\.azure-kubectl" to System-> Environment Variables
+## Otherwise kubetcl doesn't get recognized
+
+az aks get-credentials --resource-group iot-rg --name pnraks1
+kubectl apply -f ./yml/nodeapp1.dep.yml
+
+# SERVICES ###########################################
 ## check the external IPs - note that the NodePort didn't create an external IP
 kubectl get svc
 NAME         TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 np-app1      NodePort       10.0.1.173     <none>        81:31001/TCP   43s
 
 ## Apply an LB service
-kubectl apply -f k8s-app1-lb.yml 
+kubectl apply -f ./yml/nodeapp1.lb.yml 
 
-## App now available on 20.86.233.58:81
-$ kubectl get svc
+kubectl get svc
 NAME         TYPE           CLUSTER-IP   EXTERNAL-IP    PORT(S)        AGE
 kubernetes   ClusterIP      10.0.0.1     <none>         443/TCP        3d7h
 lb-app1      LoadBalancer   10.0.57.22   20.86.233.58   81:30686/TCP   8s
 np-app1      NodePort       10.0.1.173   <none>         81:31001/TCP   6m6s
 
-$ kubectl get pods
-NAME                       READY   STATUS    RESTARTS   AGE
-dep-app1-6558d659c-gcghc   1/1     Running   0          8m23s
-dep-app1-6558d659c-qrv2k   1/1     Running   0          8m23s
+## App now available on 20.71.15.99:81/info
+curl 20.71.15.99:81/info
+{"podApp":"nodeapp1","podHostName":"nodeapp1-dep-58fcf446fb-6vh2w","remoteAddress":"Request received from: ::ffff:10.244.0.1:25801","requestHostHeader":"20.71.15.99:81","time":"Sat, 25 Mar 2023 10:53:26 GMT"}
 
-http://20.86.233.58:81
-{"podApp":"app1","podHostName":"dep-app1-6558d659c-qrv2k","remoteAddress":"Request received from: ::ffff:10.244.0.1","requestHostHeader":"20.86.233.58:81"}
-
-
-## app2 : deploy LB directly in yaml, also pull from acr
-kubectl apply -f k8s-app2.yml
-
-$ kubectl get svc
-NAME         TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)        AGE
-lb-app2      LoadBalancer   10.0.78.240   20.82.14.154   82:31453/TCP   20s
-...
-
-## Available From Browser
-http://20.82.14.154:82
-
+# NEXT .....
 # Ingress
 kubectl apply -f ingress.yml
 
