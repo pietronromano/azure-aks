@@ -176,6 +176,7 @@ kubectl scale deployment nodeapp1-dep --replicas=5
 kubectl logs  deployment/nodeapp1-dep
 
 # AKS ######################################################################
+## (Login not needed if starting with az aks get-credentials)
 az login
 
 ## Install kubectl
@@ -192,7 +193,11 @@ kubectl get svc
 NAME         TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
 np-app1      NodePort       10.0.1.173     <none>        81:31001/TCP   43s
 
-## Apply an LB service
+
+## Create an LB service with kubectl directly for testing
+kubectl expose pod nodeapp1 --type=LoadBalancer --port=81 --target-port=8080 --name=nodeapp1-lb
+
+## Apply an LB service with yaml
 kubectl apply -f ./yml/nodeapp1.lb.yml 
 
 kubectl get svc
