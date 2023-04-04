@@ -16,6 +16,7 @@ df -h /mnt/azurefile
 
 # Expand
 kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {"requests": {"storage": "200Gi"}}}}'
+kubectl get pvc
 
 # pvc-azurefile
 ---
