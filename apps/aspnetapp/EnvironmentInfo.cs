@@ -6,7 +6,7 @@ public struct EnvironmentInfo
     {
         GCMemoryInfo gcInfo = GC.GetGCMemoryInfo();
         TotalAvailableMemoryBytes = gcInfo.TotalAvailableMemoryBytes;
-
+      
         if (!OperatingSystem.IsLinux())
         {
             return;
@@ -28,8 +28,9 @@ public struct EnvironmentInfo
 
         MemoryLimit = GetBestValue(memoryLimitPaths);
         MemoryUsage = GetBestValue(currentMemoryPaths);
+   
     }
-
+    public string Containerized => (Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") is null ? "false" : "true");
     public string RuntimeVersion => RuntimeInformation.FrameworkDescription;
     public string OSVersion => RuntimeInformation.OSDescription;
     public string OSArchitecture => RuntimeInformation.OSArchitecture.ToString();
@@ -38,6 +39,9 @@ public struct EnvironmentInfo
     public long TotalAvailableMemoryBytes { get; }
     public long MemoryLimit { get; }
     public long MemoryUsage { get; }
+    public string MachineName => Environment.MachineName;
+    public string CurrentDirectory => Environment.CurrentDirectory;
+    
 
     private static long GetBestValue(string[] paths)
     {

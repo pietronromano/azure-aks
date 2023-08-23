@@ -1,16 +1,31 @@
+# 23-Agosto-2023
+## SOURCE: https://github.com/pietronromano/containers
+## Downloaded to Eviden machine, updated
+
 # 17-March-2023
 # SOURCE: https://github.com/dotnet/dotnet-docker.git
 # See Source for other Dockerfile images
 
-# Build
+# DotNet
+## Install 7
+winget install Microsoft.DotNet.SDK.7
+dotnet --info
+## Build
+dotnet build
+
+## Debug with ".Net Core Launch (Web)" setting
+
+# ########################################################
+# Docker
+## Build
 docker build --pull -t aspnetapp -f Dockerfile.ubuntu-x64 .
 
-# Run
+## Run
 docker container run  --name aspnetapp -it -p 8000:80 aspnetapp
 
-# Run bash: NOTE: that curl isn't installed on linux by default
+## Run bash: NOTE: that curl isn't installed on linux by default
 docker exec -it aspnetapp bash
-# curl http://localhost:8000/Environment
+## curl http://localhost:8000/Environment
 {"runtimeVersion":".NET 7.0.2","osVersion":"Linux 5.15.79.1-microsoft-standard-WSL2 #1 SMP Wed Nov 23 01:01:46 UTC 2022","osArchitecture":"X64","user":"root","processorCount":16,"totalAvailableMemoryBytes":67430023168,"memoryLimit":9223372036854771712,"memoryUsage":100577280}
 
 --------------------------------------------------------------

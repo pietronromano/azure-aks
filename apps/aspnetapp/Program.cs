@@ -42,7 +42,7 @@ app.MapGet("/Environment", () =>
     string json = JsonSerializer.Serialize(info);
     //Fails on Debug in Windows: in Container, requires logs directory to already exist
     //if(!File.Exists("./logs"))  File.Create("./logs"); This crashed also in
-    File.AppendAllText("logs.txt",json + "/n");
+    File.AppendAllText("logs.txt",json + "\n");
     return info;
 });
 

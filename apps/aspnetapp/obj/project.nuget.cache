@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NKgrRI1YIvZvC4LwPAdkNJp3C3LTRSxzAQB4dEM0TfaSu81Lmb2boJSDp72I75hLMBFOSkvWDVb8uRuEqv5YFA==",
+  "dgSpecHash": "+o2zpWtAWBJuZOci3odR2yYl+W/EGG/weqEvaAMBuR6pTSL/ds9yBtOu3liZ91LT/wEDpN+jOLI1+DmEFM4RTA==",
   "success": true,
-  "projectFilePath": "C:\\dev\\azure\\containers\\aspnetapp\\aspnetapp.csproj",
+  "projectFilePath": "C:\\dev\\courses\\containers\\apps\\aspnetapp\\aspnetapp.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
