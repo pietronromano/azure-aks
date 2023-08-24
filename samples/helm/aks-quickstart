@@ -1,0 +1,15 @@
+# 24-08-2023
+# SOURCE:
+https://learn.microsoft.com/en-us/azure/aks/quickstart-helm?tabs=azure-cli
+
+# login to Azure
+az login --tenant pietronromanolive.onmicrosoft.com
+
+## TODO....
+
+
+
+
+## Configure kubectl
+az aks get-credentials -g cntr-rg -n pnraks1
+
