@@ -30,4 +30,6 @@ az feature register --namespace "Microsoft.ContainerService" --name "AKS-VPAPrev
 az provider register --namespace "Microsoft.ContainerService" 
 
 # Get context
-az aks get-credentials --resource-group iot-rg --name pnraks1
+rg="aks-rg"
+clu="pnraks1"
+az aks get-credentials --resource-group $rg --name $clu
