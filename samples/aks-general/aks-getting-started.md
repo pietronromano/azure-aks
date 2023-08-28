@@ -14,7 +14,7 @@ https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 # Login
 az version
 az login
-az account set --subscription 3ea0a827-ae7e-48da-a47c-a033b20041a1
+az account set --subscription "26b58bc5-ccfe-48a9-b00e-51d89e19a4db"
 
 # Install kubectl locally using the az aks install-cli command:
 az aks install-cli
@@ -33,3 +33,9 @@ az provider register --namespace "Microsoft.ContainerService"
 rg="aks-rg"
 clu="pnraks1"
 az aks get-credentials --resource-group $rg --name $clu
+
+# Configure Autoscaling
+az aks update -g $rg -n $clu --enable-cluster-autoscaler --min-count 1 --max-count 3
+
+# Stop the cluster
+az aks stop -g $rg  -n $clu

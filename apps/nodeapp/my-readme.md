@@ -42,6 +42,7 @@ docker exec -it --user=root nodeapp-dev sh
 # Build as nodeapp1/2
 docker image build -t nodeapp1 -f Dockerfile.nodeapp1 .
 docker image build -t nodeapp2 -f Dockerfile.nodeapp2 .
+docker images
 
 ## Run the containers locally, exposing ports 81,82 on host
 docker container ls
@@ -127,14 +128,15 @@ https://hub.docker.com/u/pietronromano
 ## then push
 sudo docker image push pietronromano/nodeapp1:latest
 sudo docker image push pietronromano/nodeapp2:latest
+
 # ACR
 ## Upload to acr
 az acr login -n pnracr1
-docker tag app1 pnracr1.azurecr.io/app1:1.0
-docker push pnracr1.azurecr.io/app1:1.0
+docker tag nodeapp1 pnracr1.azurecr.io/nodeapp1
+docker push pnracr1.azurecr.io/nodeapp1
 
-docker tag app2 pnracr1.azurecr.io/app2:2.0
-docker push pnracr1.azurecr.io/app2:2.0
+docker tag nodeapp2 pnracr1.azurecr.io/nodeapp2
+docker push pnracr1.azurecr.io/nodeapp2
 
 
 # KUBERNETES ############################################################
