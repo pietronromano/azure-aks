@@ -1,0 +1,196 @@
+{
+  "aadProfile": null,
+  "addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/DefaultResourceGroup-WEU/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-26b58bc5-ccfe-48a9-b00e-51d89e19a4db-WEU",
+        "useAADAuth": "true"
+      },
+      "enabled": true,
+      "identity": null
+    }
+  },
+  "agentPoolProfiles": [
+    {
+      "availabilityZones": null,
+      "count": 1,
+      "creationData": null,
+      "currentOrchestratorVersion": "1.26.6",
+      "enableAutoScaling": false,
+      "enableEncryptionAtHost": false,
+      "enableFips": false,
+      "enableNodePublicIp": false,
+      "enableUltraSsd": false,
+      "gpuInstanceProfile": null,
+      "hostGroupId": null,
+      "kubeletConfig": null,
+      "kubeletDiskType": "OS",
+      "linuxOsConfig": null,
+      "maxCount": null,
+      "maxPods": 110,
+      "minCount": null,
+      "mode": "System",
+      "name": "nodepool1",
+      "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202308.10.0",
+      "nodeLabels": null,
+      "nodePublicIpPrefixId": null,
+      "nodeTaints": null,
+      "orchestratorVersion": "1.26.6",
+      "osDiskSizeGb": 128,
+      "osDiskType": "Managed",
+      "osSku": "Ubuntu",
+      "osType": "Linux",
+      "podSubnetId": null,
+      "powerState": {
+        "code": "Running"
+      },
+      "provisioningState": "Succeeded",
+      "proximityPlacementGroupId": null,
+      "scaleDownMode": null,
+      "scaleSetEvictionPolicy": null,
+      "scaleSetPriority": null,
+      "spotMaxPrice": null,
+      "tags": null,
+      "type": "VirtualMachineScaleSets",
+      "upgradeSettings": {
+        "drainTimeoutInMinutes": null,
+        "maxSurge": null
+      },
+      "vmSize": "Standard_DS2_v2",
+      "workloadRuntime": null
+    }
+  ],
+  "apiServerAccessProfile": null,
+  "autoScalerProfile": null,
+  "autoUpgradeProfile": {
+    "nodeOsUpgradeChannel": "NodeImage",
+    "upgradeChannel": null
+  },
+  "azureMonitorProfile": null,
+  "azurePortalFqdn": "pnraks1-aks-rg-26b58b-6kocve2t.portal.hcp.westeurope.azmk8s.io",
+  "currentKubernetesVersion": "1.26.6",
+  "disableLocalAccounts": false,
+  "diskEncryptionSetId": null,
+  "dnsPrefix": "pnraks1-aks-rg-26b58b",
+  "enablePodSecurityPolicy": null,
+  "enableRbac": true,
+  "extendedLocation": null,
+  "fqdn": "pnraks1-aks-rg-26b58b-6kocve2t.hcp.westeurope.azmk8s.io",
+  "fqdnSubdomain": null,
+  "httpProxyConfig": null,
+  "id": "/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourcegroups/aks-rg/providers/Microsoft.ContainerService/managedClusters/pnraks1",
+  "identity": {
+    "delegatedResources": null,
+    "principalId": "30b6237b-bad6-4e22-ba72-11dc3e9878e8",
+    "tenantId": "599fd2f6-80be-4f0d-9b03-b3e74fdcf211",
+    "type": "SystemAssigned",
+    "userAssignedIdentities": null
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "15aa7815-d57d-4b0d-96f0-2c88ff40b589",
+      "objectId": "9792c823-4ea6-4b3e-9c35-eaa26255fcea",
+      "resourceId": "/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourcegroups/MC_aks-rg_pnraks1_westeurope/providers/Microsoft.ManagedIdentity/userAssignedIdentities/pnraks1-agentpool"
+    }
+  },
+  "kubernetesVersion": "1.26.6",
+  "linuxProfile": {
+    "adminUsername": "azureuser",
+    "ssh": {
+      "publicKeys": [
+        {
+          "keyData": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCWhKrJYCnUVxJuKNuA+cy2xa5mi/8RXlSupgyv0us9YnNpQBQpPvZJ38KCBmQreMxOxhZEIyTcYp2qsz4cTx1vjEUKn4QdFVVStgsIF0J9WWJNMUyymvV6pGUvSc4eiohwedVc47a/uD0Q8WH/GTvVyg7DLSMxKL5lC1FCzMzsAuJ2C0Pg/osLhrKOOIxYwPikKDLYvvzu53S00yflW9XZbpMqug98rMYAvrvNdyg+JXqMoC/TLVuHFaPEKaY0xh3LYPgKaN7hAdMhxE0an5voxUQvDfUrPoJ+nb1pivx+OYw41QazkRghxd4dDMF3/jS8O2+nJXJ+348O18vhbfFx"
+        }
+      ]
+    }
+  },
+  "location": "westeurope",
+  "maxAgentPools": 100,
+  "name": "pnraks1",
+  "networkProfile": {
+    "dnsServiceIp": "10.0.0.10",
+    "ipFamilies": [
+      "IPv4"
+    ],
+    "loadBalancerProfile": {
+      "allocatedOutboundPorts": null,
+      "effectiveOutboundIPs": [
+        {
+          "id": "/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/MC_aks-rg_pnraks1_westeurope/providers/Microsoft.Network/publicIPAddresses/67ecfeeb-1c3e-4626-a572-eeeae3f75e58",
+          "resourceGroup": "MC_aks-rg_pnraks1_westeurope"
+        }
+      ],
+      "enableMultipleStandardLoadBalancers": null,
+      "idleTimeoutInMinutes": null,
+      "managedOutboundIPs": {
+        "count": 1,
+        "countIpv6": null
+      },
+      "outboundIPs": null,
+      "outboundIpPrefixes": null
+    },
+    "loadBalancerSku": "Standard",
+    "natGatewayProfile": null,
+    "networkDataplane": null,
+    "networkMode": null,
+    "networkPlugin": "kubenet",
+    "networkPluginMode": null,
+    "networkPolicy": null,
+    "outboundType": "loadBalancer",
+    "podCidr": "10.244.0.0/16",
+    "podCidrs": [
+      "10.244.0.0/16"
+    ],
+    "serviceCidr": "10.0.0.0/16",
+    "serviceCidrs": [
+      "10.0.0.0/16"
+    ]
+  },
+  "nodeResourceGroup": "MC_aks-rg_pnraks1_westeurope",
+  "oidcIssuerProfile": {
+    "enabled": false,
+    "issuerUrl": null
+  },
+  "podIdentityProfile": null,
+  "powerState": {
+    "code": "Running"
+  },
+  "privateFqdn": null,
+  "privateLinkResources": null,
+  "provisioningState": "Succeeded",
+  "publicNetworkAccess": null,
+  "resourceGroup": "aks-rg",
+  "securityProfile": {
+    "azureKeyVaultKms": null,
+    "defender": null,
+    "imageCleaner": null,
+    "workloadIdentity": null
+  },
+  "servicePrincipalProfile": {
+    "clientId": "msi"
+  },
+  "sku": {
+    "name": "Base",
+    "tier": "Free"
+  },
+  "storageProfile": {
+    "blobCsiDriver": null,
+    "diskCsiDriver": {
+      "enabled": true
+    },
+    "fileCsiDriver": {
+      "enabled": true
+    },
+    "snapshotController": {
+      "enabled": true
+    }
+  },
+  "supportPlan": "KubernetesOfficial",
+  "systemData": null,
+  "type": "Microsoft.ContainerService/ManagedClusters",
+  "windowsProfile": null,
+  "workloadAutoScalerProfile": {
+    "keda": null,
+    "verticalPodAutoscaler": null
+  }
+}
