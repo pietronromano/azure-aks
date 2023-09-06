@@ -17,6 +17,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     type                = "VirtualMachineScaleSets"
     enable_auto_scaling = false
     # MY ADDITION: Array of Zones (WE only let me do one...)
+    ## az vm list-skus --location centralus --size Standard_D --all --output table
     zones = [ "1" ]
   }
 
