@@ -6,7 +6,14 @@ https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-terraf
 terraform init -upgrade
 
 # Run terraform plan to create an execution plan.
-terraform plan -out main.tfplan
+terraform plan -out tfplan
+
+# Show output
+terraform show -json tfplan > tfplan.json 
+!!! jq: error (at <stdin>:1402): Cannot iterate over null (null)
+cat tfplan.json | jq '.resources[] | {type: .type, name: .name}'  
+
+ 
 
 # Apply
 terraform apply main.tfplan
