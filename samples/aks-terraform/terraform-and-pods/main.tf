@@ -16,6 +16,8 @@ resource "azurerm_kubernetes_cluster" "aks" {
     vm_size             = "Standard_DS2_v2"
     type                = "VirtualMachineScaleSets"
     enable_auto_scaling = false
+    # MY ADDITION: Array of Zones (WE only let me do one...)
+    zones = [ "1" ]
   }
 
   identity {
