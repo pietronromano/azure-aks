@@ -5,10 +5,21 @@
 - https://github.com/HoussemDellai/docker-kubernetes-course
 - 08_aks_terraform
 
+# Login
+    az login --tenant pietronromanolive.onmicrosoft.com
+     
 # Follow:
     commands.sh to generate cluster
     samples/aks-general/aks-pod-dep-svc.md to run pods
 
 
-# Login
-    az login --tenant pietronromanolive.onmicrosoft.com
+# CLI
+    rg="aks-rg"
+    loc="westeurope"
+    clu="pnraks"
+    acr="pnracr"
+
+    az aks show -g $rg -n $clu
+
+    az provider register --namespace Microsoft.KubernetesConfiguration
+    az provider show  -n Microsoft.KubernetesConfiguration

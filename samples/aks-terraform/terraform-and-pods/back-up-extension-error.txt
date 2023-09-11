@@ -1,0 +1,53 @@
+azurerm_kubernetes_cluster_extension.backup: Still creating... [30s elapsed]
+╷
+│ Error: creating Scoped Extension (Scope: "/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/managedClusters/pnraks"
+│ Extension Name: "aks-extension-backup"): polling after Create: polling failed: the Azure API returned the following error:
+│
+│ Status: "Failed"
+│ Code: "ExtensionOperationFailed"
+│ Message: "The extension operation failed with the following error:  Request failed to https://management.azure.com/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/managedclusters/pnraks/extensionaddons/aks-extension-backup?api-version=2021-03-01. Error code: Unauthorized. Reason: Unauthorized.{\"error\":{\"code\":\"InvalidAuthenticationToken\",\"message\":\"The received access token is not valid: at least one of the claims 'puid' or 'altsecid' or 'oid' should be present. If you are accessing as application please make sure service principal is properly created in the tenant.\"}}."
+│ Activity Id: ""
+│
+│ ---
+│
+│ API Response:
+│
+│ ----[start]----
+│ {"id":"/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/ManagedClusters/pnraks/providers/Microsoft.KubernetesConfiguration/extensions/aks-extension-backup/operations/da607723-babc-486c-9374-5a396f16729e","name":"da607723-babc-486c-9374-5a396f16729e","status":"Failed","error":{"code":"ExtensionOperationFailed","message":"The extension operation failed with the following error:  Request failed to https://management.azure.com/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/managedclusters/pnraks/extensionaddons/aks-extension-backup?api-version=2021-03-01. Error code: Unauthorized. Reason: Unauthorized.{\"error\":{\"code\":\"InvalidAuthenticationToken\",\"message\":\"The received access token is not valid: at least one of the claims 'puid' or 'altsecid' or 'oid' should be present. If you are accessing as application please make sure service principal is properly created in the tenant.\"}}.","additionalInfo":[]}}
+│ -----[end]-----
+│
+│
+│   with azurerm_kubernetes_cluster_extension.backup,
+│   on main.tf line 38, in resource "azurerm_kubernetes_cluster_extension" "backup":
+│   38: resource "azurerm_kubernetes_cluster_extension" "backup" {
+│
+│ creating Scoped Extension (Scope:
+│ "/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/managedClusters/pnraks"
+│ Extension Name: "aks-extension-backup"): polling after Create: polling failed: the Azure API returned the 
+│ following error:
+│
+│ Status: "Failed"
+│ Code: "ExtensionOperationFailed"
+│ Message: "The extension operation failed with the following error:  Request failed to
+│ https://management.azure.com/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/managedclusters/pnraks/extensionaddons/aks-extension-backup?api-version=2021-03-01.
+│ Error code: Unauthorized. Reason:
+│ Unauthorized.{\"error\":{\"code\":\"InvalidAuthenticationToken\",\"message\":\"The received access token  
+│ is not valid: at least one of the claims 'puid' or 'altsecid' or 'oid' should be present. If you are      
+│ accessing as application please make sure service principal is properly created in the tenant.\"}}."      
+│ Activity Id: ""
+│
+│ ---
+│
+│ API Response:
+│
+│ ----[start]----
+│ {"id":"/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/ManagedClusters/pnraks/providers/Microsoft.KubernetesConfiguration/extensions/aks-extension-backup/operations/da607723-babc-486c-9374-5a396f16729e","name":"da607723-babc-486c-9374-5a396f16729e","status":"Failed","error":{"code":"ExtensionOperationFailed","message":"The
+│ extension operation failed with the following error:  Request failed to
+│ https://management.azure.com/subscriptions/26b58bc5-ccfe-48a9-b00e-51d89e19a4db/resourceGroups/aks-rg/providers/Microsoft.ContainerService/managedclusters/pnraks/extensionaddons/aks-extension-backup?api-version=2021-03-01.
+│ Error code: Unauthorized. Reason:
+│ Unauthorized.{\"error\":{\"code\":\"InvalidAuthenticationToken\",\"message\":\"The received access token  
+│ is not valid: at least one of the claims 'puid' or 'altsecid' or 'oid' should be present. If you are      
+│ accessing as application please make sure service principal is properly created in the
+│ tenant.\"}}.","additionalInfo":[]}}
+│ -----[end]-----
+│

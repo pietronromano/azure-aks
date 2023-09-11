@@ -30,6 +30,16 @@ resource "azurerm_kubernetes_cluster" "aks" {
     network_plugin    = "kubenet" # CNI
   }
 }
+/*
+ My Addition: Back-up extension
+ https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster_extension
+ https://learn.microsoft.com/en-us/azure/backup/azure-kubernetes-service-cluster-manage-backups#install-backup-extension
+*/
+resource "azurerm_kubernetes_cluster_extension" "backup" {
+  name           = "aks-extension-backup"
+  cluster_id     = azurerm_kubernetes_cluster.aks.id
+  extension_type = "microsoft.dataprotection.kubernetes"
+}
 
 resource "azurerm_container_registry" "acr" {
   name                = var.acr_name
